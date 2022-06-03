@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="662.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project217ui.ViewPetFrame">
+   <children>
+      <Label fx:id="viewLB" layoutX="197.0" layoutY="52.0" text="Search and View Pet!">
+         <font>
+            <Font name="Verdana" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="pIDViewLB" layoutX="104.0" layoutY="116.0" text="Pet's ID">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="oNameViewLB" layoutX="86.0" layoutY="266.0" text="Owner's name:">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="pNameViewLB" layoutX="86.0" layoutY="195.0" text="Pet's name:">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="reasonViewLB" layoutX="86.0" layoutY="373.0" text="Reason for previous visit:">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="oPhoneViewLB" layoutX="85.0" layoutY="301.0" text="Owner's phone number:">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="pBreedViewLB" layoutX="86.0" layoutY="338.0" text="Pet's breed:">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="resultsViewLB" layoutX="302.0" layoutY="149.0" text="Results:">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="pNameViewTF" editable="false" layoutX="261.0" layoutY="190.0" prefHeight="25.0" prefWidth="291.0" />
+      <TextField fx:id="pIDViewTF" layoutX="214.0" layoutY="111.0" prefHeight="25.0" prefWidth="268.0" />
+      <TextField fx:id="oNameViewTF" editable="false" layoutX="261.0" layoutY="261.0" prefHeight="25.0" prefWidth="291.0" />
+      <TextField fx:id="oPhoneViewTF" editable="false" layoutX="261.0" layoutY="296.0" prefHeight="25.0" prefWidth="291.0" />
+      <TextField fx:id="pBreedViewTF" editable="false" layoutX="261.0" layoutY="333.0" prefHeight="25.0" prefWidth="291.0" />
+      <TextField fx:id="reasonViewTF" editable="false" layoutX="261.0" layoutY="368.0" prefHeight="25.0" prefWidth="291.0" />
+      <Button fx:id="searchViewBT" layoutX="518.0" layoutY="108.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="72.0" text="Search">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="doneViewBT" layoutX="539.0" layoutY="404.0" mnemonicParsing="false" onAction="#switchToOptionsMV" prefHeight="32.0" prefWidth="72.0" text="Done">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Button>
+      <Label fx:id="pAgeViewLB" layoutX="85.0" layoutY="228.0" text="Pet's age:">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="pAgeViewTF" editable="false" layoutX="261.0" layoutY="223.0" prefHeight="25.0" prefWidth="291.0" />
+      <Button fx:id="backBT" layoutX="68.0" layoutY="404.0" mnemonicParsing="false" onAction="#toBack" prefHeight="32.0" prefWidth="72.0" text="Back">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>
