@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.project217ui.Controllers.DeletePetFrameController;
+import java.util.HashMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -85,13 +87,61 @@ public class DeleteFrame {
     private Label titleDeleteLB;
 
     @FXML
+    private Label diagnosisDelLB;
+    
+    @FXML
+    private Label weightDelLB;
+    
+    @FXML
+    private TextField weightDelTF;
+
+    @FXML
+    private TextField diagnosisDelTF;
+
+     @FXML
+    void getPet(ActionEvent event) throws IOException
+    {
+        HashMap<String,String> petInfo = DeletePetFrameController.RetrievePetInfo(petIDDelTF.getText());
+        if (petInfo==null|| petInfo.isEmpty())
+        {
+            resultsLB.setText(resultsLB.getText()+" ID not Found");
+            oNameDelTF.setText("");
+            pNameDelTF.setText("");
+            oPhoneDelTF.setText("");
+            pBreedDelTF.setText("");
+            reasonDelTF.setText("");
+            diagnosisDelTF.setText("");
+            pAgeDelTF.setText("");
+            weightDelTF.setText("");
+        }
+        else
+        {
+            pNameDelTF.setText(petInfo.get("PetName"));
+            oNameDelTF.setText(petInfo.get("OwnerName"));
+            oPhoneDelTF.setText(petInfo.get("OwnerPhone"));
+            pBreedDelTF.setText( petInfo.get("PetBreed"));
+            reasonDelTF.setText(petInfo.get("VisitReason"));
+            diagnosisDelTF.setText(petInfo.get("Diagnosis"));
+            pAgeDelTF.setText(petInfo.get("Age"));
+            weightDelTF.setText(petInfo.get("Weight"));
+        }        
+    }
+
+    @FXML
     void switchToDelS(ActionEvent event) throws IOException
     {
-        Parent root = FXMLLoader.load(getClass().getResource("DeleteSuccessFrame.fxml"));
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        if(DeletePetFrameController.RetrievePetInfo(petIDDelTF.getText())!=null&&DeletePetFrameController.RemovePet(petIDDelTF.getText()))
+        {
+            Parent root = FXMLLoader.load(getClass().getResource("DeleteSuccessFrame.fxml"));
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        else
+        {
+            resultsLB.setText("Results: Pet Couldn't be removed recheck ID");
+        }
     }
 
     @FXML

@@ -2,7 +2,10 @@ package com.project217ui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.ResourceBundle;
+
+import com.project217ui.Controllers.ViewPetFrameController;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,7 +27,7 @@ public class ViewPetFrame {
     private URL location;
 
     @FXML
-    private Button doneViewBT;
+    private Button updateViewBT;
 
     @FXML
     private Button backBT;
@@ -81,8 +84,50 @@ public class ViewPetFrame {
     private Label viewLB;
 
     @FXML
-    void switchToOptionsMV(ActionEvent event) throws IOException
+    private Label diagnosisViewLB;
+    
+    @FXML
+    private Label weightViewLB;
+    
+    @FXML
+    private TextField weightViewTF;
+
+    @FXML
+    private TextField diagnosisViewTF;
+
+    @FXML
+    void getPet(ActionEvent event) throws IOException
     {
+        HashMap<String,String> petInfo = ViewPetFrameController.RetrievePetInfo(pIDViewTF.getText());
+        if (petInfo==null|| petInfo.isEmpty())
+        {
+            resultsViewLB.setText("Results: ID not Found");
+            oNameViewTF.setText("");
+            pNameViewTF.setText("");
+            oPhoneViewTF.setText("");
+            pBreedViewTF.setText("");
+            reasonViewTF.setText("");
+            diagnosisViewTF.setText("");
+            pAgeViewTF.setText("");
+            weightViewTF.setText("");
+        }
+        else
+        {
+            pNameViewTF.setText(petInfo.get("PetName"));
+            oNameViewTF.setText(petInfo.get("OwnerName"));
+            oPhoneViewTF.setText(petInfo.get("OwnerPhone"));
+            pBreedViewTF.setText( petInfo.get("PetBreed"));
+            reasonViewTF.setText(petInfo.get("VisitReason"));
+            diagnosisViewTF.setText(petInfo.get("Diagnosis"));
+            pAgeViewTF.setText(petInfo.get("Age"));
+            weightViewTF.setText(petInfo.get("Weight"));
+        }        
+    }
+
+    @FXML
+    void switchToOptionsMV(ActionEvent event) throws IOException
+    {        
+        ViewPetFrameController.UpdatePetInfo(oNameViewTF.getText(), oPhoneViewTF.getText(), pIDViewTF.getId(), pNameViewTF.getId(), pBreedViewTF.getText(),pAgeViewTF.getText(), reasonViewTF.getText(), weightViewTF.getText(), diagnosisViewTF.getText());
         Parent root = FXMLLoader.load(getClass().getResource("OptionsFrame.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -102,7 +147,7 @@ public class ViewPetFrame {
 
     @FXML
     void initialize() {
-        assert doneViewBT != null : "fx:id=\"doneViewBT\" was not injected: check your FXML file 'ViewPetFrame.fxml'.";
+        assert updateViewBT != null : "fx:id=\"doneViewBT\" was not injected: check your FXML file 'ViewPetFrame.fxml'.";
         assert oNameViewLB != null : "fx:id=\"oNameViewLB\" was not injected: check your FXML file 'ViewPetFrame.fxml'.";
         assert oNameViewTF != null : "fx:id=\"oNameViewTF\" was not injected: check your FXML file 'ViewPetFrame.fxml'.";
         assert oPhoneViewLB != null : "fx:id=\"oPhoneViewLB\" was not injected: check your FXML file 'ViewPetFrame.fxml'.";
