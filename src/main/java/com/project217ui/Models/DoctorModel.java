@@ -1,30 +1,104 @@
 package com.project217ui.Models;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+
 import java.nio.charset.StandardCharsets;
 public class DoctorModel {
-
-
-    public DoctorModel()
+    
+    private static DoctorModel instance;
+    
+    
+    public static DoctorModel Instance()
+    {
+        if(instance==null)
+            instance = new DoctorModel();
+        return instance;
+    }
+    
+    
+    private DoctorModel()
     {
 
     }
 
 
-    public DoctorModel(String o_UserName, String o_Password) throws NoSuchAlgorithmException
+    public boolean TestLogin(String o_UserName, String o_Password)
     {
-        m_UserNameHash = getHash(o_UserName);
-        m_PasswordHash = getHash(o_UserName+o_Password+m_UserNameHash);
+        try
+        {
+            return getHash(o_UserName).equals(getHash("AAA"))&&getHash(o_UserName+o_Password+getHash(o_UserName)).equals(getHash("AAA"+"AAA"+getHash("AAA")));        
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
     }
 
 
-    public boolean Login(String o_UserName, String o_Password) throws NoSuchAlgorithmException
+    public boolean login(String o_UserName, String o_Password)
     {
-        return getHash(o_UserName).equals(m_UserNameHash)&&getHash(o_UserName+o_Password+getHash(o_UserName)).equals(m_PasswordHash);        
+        return true;
+    }
+
+    
+    public boolean AddPetToDB(PetModel pet)
+    {
+        return findPetInDB(pet)!=null;
     }
 
 
-    private String getHash(String toBeHashed)throws NoSuchAlgorithmException
+    public PetModel findPetInDB(String petID)
+    {
+        return null;
+    }
+
+
+    public PetModel findPetInDB(PetModel pet)
+    {
+        return null;
+    }    
+
+
+    public boolean removePetFromDB(String petID)
+    {
+        return removePetFromDB(findPetInDB(petID));
+    }
+
+
+    public boolean removePetFromDB(PetModel pet)
+    {
+        return findPetInDB(pet)==null;
+    }
+
+
+    public boolean updatePetInDB(PetModel pet)
+    {
+        return true;
+    }
+
+
+    public boolean addVisitToPet(PetModel pet, VisitModel visit)
+    {
+        pet.addVisit(visit);
+        return pet.getLastVisit()==visit;
+    }
+
+
+    public boolean removeVisitFromPet(PetModel pet, VisitModel visit)
+    {
+        pet.removeVisit(visit);
+        return pet.getVisitIndex(visit)==-1;
+    }
+
+    public boolean removeVisitFromPet(PetModel pet, int visitIndex)
+    {
+        VisitModel visit= pet.getVisit(visitIndex);
+        pet.removeVisit(visitIndex);
+        return pet.getVisit(visitIndex)!=visit;
+    }
+
+
+    private static String getHash(String toBeHashed)throws NoSuchAlgorithmException
     {
         MessageDigest md5Hasher = MessageDigest.getInstance("MD5");
         md5Hasher.update(toBeHashed.getBytes());
@@ -42,8 +116,4 @@ public class DoctorModel {
         }
         return new String(hexChars, StandardCharsets.UTF_8);
     }
-
-
-    private String m_UserNameHash;
-    private String m_PasswordHash;
 }

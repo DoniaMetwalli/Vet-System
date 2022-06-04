@@ -3,6 +3,9 @@ package com.project217ui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.project217ui.Controllers.AddFrameController;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -81,13 +84,35 @@ public class AddFrame {
     private Label titleAddLB;
 
     @FXML
+    private Label weightLB;
+
+    @FXML
+    private Label diagnosisLB;
+    
+    @FXML
+    private TextField weightTF;
+    
+    @FXML 
+    private TextField diagnosisTF;
+    @FXML
+    private Label messageLB;
+    @FXML
     void switchToAddS(ActionEvent event) throws IOException
     {
-        Parent root = FXMLLoader.load(getClass().getResource("AddSuccessFrame.fxml"));
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        messageLB.setText("");
+        String res =AddFrameController.AddPet(oNameTF.getText(),oPhoneTF.getText(), pIDTF.getText(),pNameTF.getText(),pBreedTF.getText(), pAgeTF.getText(), rVisitTF.getText(),weightTF.getText(),diagnosisTF.getText());
+        if(res=="")
+        {
+            Parent root = FXMLLoader.load(getClass().getResource("AddSuccessFrame.fxml"));
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        else
+        {
+            messageLB.setText(res);
+        }        
     }
 
     @FXML

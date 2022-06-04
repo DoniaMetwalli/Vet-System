@@ -83,7 +83,7 @@ public class PetModel {
     
     public void setOwnerPhone(String o_OwnerPhone) throws IllegalArgumentException {
         if(checkInvalidPhoneNum(o_OwnerPhone))
-            throw new IllegalArgumentException("Phone number cannot contain non-digit charachters or + sign");
+            throw new IllegalArgumentException("Phone number can only contain digits or + sign");
         this.m_OwnerPhone = o_OwnerPhone;
     }
     
@@ -156,12 +156,18 @@ public class PetModel {
     }
 
 
+    public int getVisitIndex(VisitModel o_Visit)
+    {
+        return m_Visits.indexOf(o_Visit);
+    }
+
+
     public void addVisit(VisitModel o_Visit)
     {
         m_Visits.add(o_Visit);
     } 
 
-
+    
     public void addVisits(Collection<? extends VisitModel> o_Visits)
     {
         m_Visits.addAll(o_Visits);
@@ -174,6 +180,18 @@ public class PetModel {
     }
 
 
+    public void removeVisit(VisitModel o_Visit)
+    {
+        m_Visits.remove(o_Visit);
+    }    
+
+
+    public void removeVisit(int o_VisitIndex)
+    {
+        m_Visits.remove(o_VisitIndex);
+    }
+    
+    
     public ArrayList<VisitModel> getVisits(String complaint)
     {
         ArrayList<VisitModel> subList = new ArrayList<VisitModel>();

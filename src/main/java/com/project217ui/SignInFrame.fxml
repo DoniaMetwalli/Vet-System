@@ -67,5 +67,10 @@
             <Font name="Verdana" size="12.0" />
          </font>
       </Button>
+      <Label fx:id="messageLB" layoutX="226.0" layoutY="400.0" text="">
+         <font>
+            <Font name="Verdana" size="13.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

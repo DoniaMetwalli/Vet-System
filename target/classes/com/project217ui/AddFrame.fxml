@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="addPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="662.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project217ui.AddFrame">
+<Pane fx:id="addPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="662.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project217ui.AddFrame">
    <children>
       <Label fx:id="titleAddLB" layoutX="244.0" layoutY="31.0" prefHeight="33.0" prefWidth="175.0" text="Adding a Pet!" textAlignment="CENTER">
          <font>
@@ -43,32 +43,49 @@
             <Font name="Verdana" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="rVisitLB" layoutX="33.0" layoutY="337.0" text="Reason for visiting:">
+      <Label fx:id="weightLB" layoutX="33.0" layoutY="337.0" text="Weight:">
          <font>
             <Font name="Verdana" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="doneAddBT" layoutX="521.0" layoutY="382.0" mnemonicParsing="false" onAction="#switchToAddS" prefHeight="33.0" prefWidth="60.0" text="Done">
+      <Label fx:id="rVisitLB" layoutX="33.0" layoutY="371.0" text="Reason for visiting:">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="diagnosisLB" layoutX="33.0" layoutY="405.0" text="Diagnosis:">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="doneAddBT" layoutX="521.0" layoutY="450.0" mnemonicParsing="false" onAction="#switchToAddS" prefHeight="33.0" prefWidth="60.0" text="Done">
          <font>
             <Font name="Verdana" size="13.0" />
          </font>
       </Button>
       <TextField fx:id="oNameTF" layoutX="205.0" layoutY="122.0" prefHeight="25.0" prefWidth="315.0" />
       <TextField fx:id="oPhoneTF" layoutX="206.0" layoutY="159.0" prefHeight="25.0" prefWidth="315.0" />
+      <TextField fx:id="pIDTF" layoutX="206.0" layoutY="195.0" prefHeight="25.0" prefWidth="315.0" />
       <TextField fx:id="pNameTF" layoutX="206.0" layoutY="229.0" prefHeight="25.0" prefWidth="315.0" />
       <TextField fx:id="pBreedTF" layoutX="206.0" layoutY="264.0" prefHeight="25.0" prefWidth="315.0" />
       <TextField fx:id="pAgeTF" layoutX="206.0" layoutY="298.0" prefHeight="25.0" prefWidth="315.0" />
-      <TextField fx:id="rVisitTF" layoutX="205.0" layoutY="332.0" prefHeight="25.0" prefWidth="315.0" />
-      <TextField fx:id="pIDTF" layoutX="206.0" layoutY="195.0" prefHeight="25.0" prefWidth="315.0" />
+      <TextField fx:id="weightTF" layoutX="205.0" layoutY="332.0" prefHeight="25.0" prefWidth="315.0" />
+      <TextField fx:id="rVisitTF" layoutX="205.0" layoutY="376.0" prefHeight="25.0" prefWidth="315.0" />
+      <TextField fx:id="diagnosisTF" layoutX="205.0" layoutY="410.0" prefHeight="25.0" prefWidth="315.0" />
       <Label fx:id="pIDLB" layoutX="36.0" layoutY="200.0" text="Pet's ID:">
          <font>
             <Font name="Verdana" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="backBT" layoutX="78.0" layoutY="382.0" mnemonicParsing="false" onAction="#toBack" prefHeight="33.0" prefWidth="60.0" text="Back">
+      <Button fx:id="backBT" layoutX="78.0" layoutY="450.0" mnemonicParsing="false" onAction="#toBack" prefHeight="33.0" prefWidth="60.0" text="Back">
          <font>
             <Font name="Verdana" size="13.0" />
          </font>
       </Button>
+      <Label fx:id="messageLB" layoutX="226.0" layoutY="450.0" text="">
+         <font>
+            <Font name="Verdana" size="13.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
