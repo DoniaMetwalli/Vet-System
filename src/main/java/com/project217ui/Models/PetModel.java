@@ -1,32 +1,34 @@
-package com.project217ui.Backend;
+package com.project217ui.Models;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 
-public class Pet {
+public class PetModel {
 
     private static HashMap<String,String> usedIDs= new HashMap<String,String>(); 
 
-    public Pet() {
+    public PetModel() {
     }
     
     
-    public Pet(Pet o_Pet)
+    public PetModel(PetModel o_Pet)
     {
-        this(new String(o_Pet.getPetName()), new String(o_Pet.getOwnerName()), new String(o_Pet.getOwnerPhone()),new String(o_Pet.getPetID()),new String(o_Pet.getBreed()), o_Pet.getAge(), new String(o_Pet.getIssue()), new String(o_Pet.getDiagnosis()));
+        this(new String(o_Pet.getPetName()), new String(o_Pet.getOwnerName()), new String(o_Pet.getOwnerPhone()),new String(o_Pet.getPetID()),new String(o_Pet.getBreed()), o_Pet.getAge(),o_Pet.getWeight(), new String(o_Pet.getIssue()), new String(o_Pet.getDiagnosis()));
     }    
     
     
-    public Pet(String o_PetName, String o_OwnerName, String o_PetID, String o_Issue, String o_Diagnosis) throws IllegalArgumentException{
+    public PetModel(String o_PetName, String o_OwnerName, String o_PetID, String o_Issue, String o_Diagnosis) throws IllegalArgumentException{
         setPetName(o_PetName);
         setOwnerName(o_OwnerName);
         setPetID(o_PetID);
         setIssue(o_Issue);
         setDiagnosis(o_Diagnosis);
+        m_Visits = new ArrayList<VisitModel>();
     }
     
     
-    public Pet(String o_PetName, String o_OwnerName, String o_OwnerPhone, String o_PetID, String o_Breed, float o_Age,
+    public PetModel(String o_PetName, String o_OwnerName, String o_OwnerPhone, String o_PetID, String o_Breed, float o_Age,float o_Weight,
     String o_Issue, String o_Diagnosis) throws IllegalArgumentException {
         setPetName(o_PetName);
         setOwnerName(o_OwnerName);
@@ -34,8 +36,10 @@ public class Pet {
         setPetID(o_PetID);
         setBreed(o_Breed);        
         setAge(o_Age);
+        setWeight(o_Weight);
         setIssue(o_Issue);
         setDiagnosis(o_Diagnosis);
+        m_Visits = new ArrayList<VisitModel>();
     }
     
 
@@ -44,7 +48,7 @@ public class Pet {
     {
         if(o == this)
             return true;
-        if(((Pet)o).getPetID()==this.getPetID())
+        if(((PetModel)o).getPetID()==this.getPetID())
             return true;   
         return false;
     }
@@ -139,6 +143,53 @@ public class Pet {
         this.m_Diagnosis = o_Diagnosis;
     }    
     
+    
+    public float getWeight() {
+        return m_Weight;
+    }
+
+
+    public void setWeight(float o_Weight) throws IllegalArgumentException{
+        if(o_Weight<0)
+        throw new IllegalArgumentException("Weight can't be less than 0");
+        this.m_Weight = o_Weight;
+    }
+
+
+    public void addVisit(VisitModel o_Visit)
+    {
+        m_Visits.add(o_Visit);
+    } 
+
+
+    public void addVisits(Collection<? extends VisitModel> o_Visits)
+    {
+        m_Visits.addAll(o_Visits);
+    }
+
+    
+    public VisitModel getVisit(int visitIndex)
+    {
+        return m_Visits.get(visitIndex);
+    }
+
+
+    public ArrayList<VisitModel> getVisits(String complaint)
+    {
+        ArrayList<VisitModel> subList = new ArrayList<VisitModel>();
+        for (VisitModel v : m_Visits)
+        {
+            if(v.getComplaint().contains(complaint))
+                subList.add(v);
+        }
+        return subList;
+    }
+
+    public VisitModel getLastVisit ()
+    {
+        return m_Visits.get(m_Visits.size()-1);
+    }
+
 
     @Override
     public String toString()
@@ -173,7 +224,8 @@ public class Pet {
     private String m_PetID = "N/A";
     private String m_Breed = "N/A";
     private float m_Age = -1;
+    private float m_Weight = -1;
     private String m_Issue = "N/A";
     private String m_Diagnosis = "N/A";
-    private ArrayList<Visit> m_Visits;
+    private ArrayList<VisitModel> m_Visits;
 }
