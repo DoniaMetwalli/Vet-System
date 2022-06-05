@@ -8,7 +8,7 @@ public class AddFrameController {
     {
         try
         {
-            return DoctorModel.Instance().AddPetToDB(new PetModel(petName,ownerName,phoneNum,petID,petBreed,Float.parseFloat(petAge),Float.parseFloat(weight), visitReason, diagnosis))?"":"Failed to add: Duplicate ID";
+            return DoctorModel.Instance().AddPetToDB(petName,ownerName,phoneNum,petID,petBreed,Float.parseFloat(petAge),Float.parseFloat(weight), visitReason, diagnosis)?"":"Failed to add: Duplicate ID";
 
         }
         catch (Exception e)

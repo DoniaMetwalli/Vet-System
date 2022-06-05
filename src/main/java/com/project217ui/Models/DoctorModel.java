@@ -10,7 +10,7 @@ import java.sql.Statement;
 import com.project217ui.Databsae.database_managment;
 
 public class DoctorModel {
-
+    database_managment d=new database_managment(); //creating object of database_managment class
     static Connection c;
     static Statement s;
     static String query;
@@ -49,7 +49,7 @@ public class DoctorModel {
 
     public boolean login(String o_UserName, String o_Password)
     {
-        database_managment d=new database_managment();
+        
         try {
             c = d.conn();
             System.out.println("Connected to DB");
@@ -61,7 +61,6 @@ public class DoctorModel {
             } else {
                return false;
             }
-       
  
          } catch (Exception ex) {
              System.err.println ("Cannot connect to database server");
@@ -89,20 +88,147 @@ public class DoctorModel {
     }
 
     
-    public boolean AddPetToDB(PetModel pet)
+    public boolean AddPetToDB(String petName,String ownerName,String phoneNum,String petID,String petBreed,float petAge,float weight, String visitReason,String diagnosis)
     {
+        try {
+            c = d.conn();
+            System.out.println("Connected to DB");
+            s=c.createStatement();
+             
+            query="INSERT INTO pet VALUES('"+petName+"','"+ownerName+"','"+phoneNum+"', '"+petName+"','"+petBreed+"',"+petAge+","+weight+", '"+visitReason+"','"+diagnosis+"')";
+            s.executeUpdate(query);
+            System.out.println("Inserted");
+ 
+         } catch (Exception ex) {
+             System.err.println ("Cannot connect to database server");
+             System.err.println("Message = " + ex.getMessage());
+             System.err.println("printTrace /n");
+             ex.printStackTrace();
+         }
+ 
+         finally
+            {
+                if (c != null)
+                {
+                    try
+                    {
+                        System.out.println("\n***** Let terminate the Connection *****");
+                        c.close ();					   
+                        System.out.println ("\nDatabase connection terminated...");
+                    }
+                    catch (Exception ex)
+                    {
+                    System.err.println ("Error in connection termination!");
+                    }
+                }
+            }
+
+
+
+
         return findPetInDB(pet)!=null;
     }
 
 
     public PetModel findPetInDB(String petID)
     {
-        return null;
-    }
+        try {
+            c = d.conn();
+            System.out.println("Connected to DB");
+            s=c.createStatement();
+            query="select * from pet where petid="+petID;
+         
+            result=s.executeQuery(query);
+            if (result.next()!=false) {
+               System.out.println("Pet found");
+               result=s.executeQuery(query);
+               return new PetModel(result.getString(1),result.getString(2),result.getString(3),result.getString(4),result.getString(5),result.getFloat(6),result.getFloat(7),result.getString(8), result.getString(9));
+            } else {
+               System.out.println("User not found");
+            }
+       
+ 
+         } catch (Exception ex) {
+             System.err.println ("Cannot connect to database server");
+             System.err.println("Message = " + ex.getMessage());
+             System.err.println("printTrace /n");
+             ex.printStackTrace();
+         }
+ 
+         finally
+            {
+                if (c != null)
+                {
+                    try
+                    {
+                        System.out.println("\n***** Let terminate the Connection *****");
+                        c.close ();					   
+                        System.out.println ("\nDatabase connection terminated...");
+                    }
+                    catch (Exception ex)
+                    {
+                    System.err.println ("Error in connection termination!");
+                    }
+                }
+
+               
+            }
+
+            return null;
+
+        }
+    
 
 
     public PetModel findPetInDB(PetModel pet)
     {
+
+        try {
+            c = d.conn();
+            System.out.println("Connected to DB");
+            s=c.createStatement();
+ 
+             //query="update pet set owner_name='"+owner_name+"',owner_phone='"+owner_phone+"',petname='"+petname+"',pet_breed='"+pet_breed+"',pet_age="+pet_age+",pet_weight="+pet_weight+" where petid="+petid;                                          
+             query="select * from pet where petid='"+pet.getPetID() + "'and owner_name='"+pet.getOwnerName()+"' and owner_phone='"+pet.getOwnerPhone()+"' and pet_name='"+pet.getPetName()+"' and pet_breed='"+pet.getBreed()+"' and pet_age="+pet.getAge()+" and pet_weight="+pet.getWeight() +" and visit_reason='"+pet.getIssue()+"' and diagnosis='"+pet.getDiagnosis()+"'";
+             System.out.println(query);
+               result= s.executeQuery(query);
+               if (result.next()!=false) {
+                System.out.println("Pet found");
+                result=s.executeQuery(query);
+                return new PetModel(result.getString(1),result.getString(2),result.getString(3),result.getString(4),result.getString(5),result.getFloat(6),result.getFloat(7),result.getString(8), result.getString(9));
+             } else {
+                System.out.println("User not found");
+             }
+       
+ 
+         } catch (Exception ex) {
+             System.err.println ("Cannot connect to database server");
+             System.err.println("Message = " + ex.getMessage());
+             System.err.println("printTrace /n");
+             ex.printStackTrace();
+         }
+ 
+         finally
+            {
+                if (c != null)
+                {
+                    try
+                    {
+                        System.out.println("\n***** Let terminate the Connection *****");
+                        c.close ();					   
+                        System.out.println ("\nDatabase connection terminated...");
+                    }
+                    catch (Exception ex)
+                    {
+                    System.err.println ("Error in connection termination!");
+                    }
+                }
+            }
+
+
+
+
+        
         return null;
     }    
 
