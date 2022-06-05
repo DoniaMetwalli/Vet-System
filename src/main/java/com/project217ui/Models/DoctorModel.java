@@ -95,7 +95,7 @@ public class DoctorModel {
             System.out.println("Connected to DB");
             s=c.createStatement();
              
-            query="INSERT INTO pet VALUES('"+petName+"','"+ownerName+"','"+phoneNum+"', '"+petName+"','"+petBreed+"',"+petAge+","+weight+", '"+visitReason+"','"+diagnosis+"')";
+            query="INSERT INTO pet VALUES('"+petID+"','"+ownerName+"','"+phoneNum+"', '"+petName+"','"+petBreed+"',"+petAge+","+weight+", '"+visitReason+"','"+diagnosis+"')";
             s.executeUpdate(query);
             System.out.println("Inserted");
  
@@ -126,7 +126,7 @@ public class DoctorModel {
 
 
 
-        return findPetInDB(pet)!=null;
+        return findPetInDB(petName,ownerName, phoneNum,petID, petBreed, petAge, weight,  visitReason, diagnosis) !=null;
     }
 
 
@@ -141,10 +141,9 @@ public class DoctorModel {
             result=s.executeQuery(query);
             if (result.next()!=false) {
                System.out.println("Pet found");
-               result=s.executeQuery(query);
-               return new PetModel(result.getString(1),result.getString(2),result.getString(3),result.getString(4),result.getString(5),result.getFloat(6),result.getFloat(7),result.getString(8), result.getString(9));
+               return new PetModel(result.getString(4),result.getString(2),result.getString(3),result.getString(4),result.getString(5),result.getFloat(6),result.getFloat(7),result.getString(8), result.getString(9));
             } else {
-               System.out.println("User not found");
+               System.out.println("pet not found");
             }
        
  
@@ -180,7 +179,7 @@ public class DoctorModel {
     
 
 
-    public PetModel findPetInDB(PetModel pet)
+    public PetModel findPetInDB(String petName,String ownerName,String phoneNum,String petID,String petBreed,float petAge,float weight, String visitReason,String diagnosis)
     {
 
         try {
@@ -189,12 +188,11 @@ public class DoctorModel {
             s=c.createStatement();
  
              //query="update pet set owner_name='"+owner_name+"',owner_phone='"+owner_phone+"',petname='"+petname+"',pet_breed='"+pet_breed+"',pet_age="+pet_age+",pet_weight="+pet_weight+" where petid="+petid;                                          
-             query="select * from pet where petid='"+pet.getPetID() + "'and owner_name='"+pet.getOwnerName()+"' and owner_phone='"+pet.getOwnerPhone()+"' and pet_name='"+pet.getPetName()+"' and pet_breed='"+pet.getBreed()+"' and pet_age="+pet.getAge()+" and pet_weight="+pet.getWeight() +" and visit_reason='"+pet.getIssue()+"' and diagnosis='"+pet.getDiagnosis()+"'";
+             query="select * from pet where petid='"+petID + "'and owner_name='"+ownerName+"' and owner_phone='"+phoneNum+"' and pet_name='"+petName+"' and pet_breed='"+petBreed+"' and pet_age="+petAge+" and pet_weight="+weight +" and visit_reason='"+visitReason+"' and diagnosis='"+diagnosis+"'";
              System.out.println(query);
                result= s.executeQuery(query);
                if (result.next()!=false) {
                 System.out.println("Pet found");
-                result=s.executeQuery(query);
                 return new PetModel(result.getString(1),result.getString(2),result.getString(3),result.getString(4),result.getString(5),result.getFloat(6),result.getFloat(7),result.getString(8), result.getString(9));
              } else {
                 System.out.println("User not found");
@@ -231,7 +229,10 @@ public class DoctorModel {
         
         return null;
     }    
-
+    public PetModel findPetInDB(PetModel pet)
+    {
+        return findPetInDB(pet.getPetName(),pet.getOwnerName(),pet.getOwnerPhone(),pet.getPetID(),pet.getBreed(),pet.getAge(),pet.getWeight(),pet.getIssue(),pet.getDiagnosis());
+    }
 
     public boolean removePetFromDB(String petID)
     {
