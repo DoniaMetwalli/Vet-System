@@ -35,10 +35,10 @@ public class OptionsFrame {
     private Label deleteLB;
 
     @FXML
-    private Button exitBT;
+    private Button signoutBT;
 
     @FXML
-    private Label exitLB;
+    private Label signoutLB;
 
     @FXML
     private Pane optionsPane;
@@ -83,26 +83,28 @@ public class OptionsFrame {
     }
 
     @FXML
-    void closeButton(ActionEvent event) throws IOException 
+    void switchToSignOut(ActionEvent event) throws IOException 
     {
-        // get a handle to the stage
+        Parent root = FXMLLoader.load(getClass().getResource("SignOutFrame.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        // do what you have to do
-        stage.close();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
     }
 
     @FXML
     void initialize() {
-        assert addBT != null : "fx:id=\"addBT\" was not injected: check your FXML file 'OptionsFrame.fxml'.";
-        assert addLB != null : "fx:id=\"addLB\" was not injected: check your FXML file 'OptionsFrame.fxml'.";
-        assert deleteBT != null : "fx:id=\"deleteBT\" was not injected: check your FXML file 'OptionsFrame.fxml'.";
-        assert deleteLB != null : "fx:id=\"deleteLB\" was not injected: check your FXML file 'OptionsFrame.fxml'.";
-        assert exitBT != null : "fx:id=\"exitBT\" was not injected: check your FXML file 'OptionsFrame.fxml'.";
-        assert exitLB != null : "fx:id=\"exitLB\" was not injected: check your FXML file 'OptionsFrame.fxml'.";
-        assert optionsPane != null : "fx:id=\"optionsPane\" was not injected: check your FXML file 'OptionsFrame.fxml'.";
-        assert titleLB != null : "fx:id=\"titleLB\" was not injected: check your FXML file 'OptionsFrame.fxml'.";
-        assert viewBT != null : "fx:id=\"viewBT\" was not injected: check your FXML file 'OptionsFrame.fxml'.";
-        assert viewLB != null : "fx:id=\"viewLB\" was not injected: check your FXML file 'OptionsFrame.fxml'.";
+        assert addBT != null;
+        assert addLB != null;
+        assert deleteBT != null;
+        assert deleteLB != null;
+        assert signoutBT != null;
+        assert signoutLB != null;
+        assert optionsPane != null;
+        assert titleLB != null;
+        assert viewBT != null;
+        assert viewLB != null;
 
     }
 

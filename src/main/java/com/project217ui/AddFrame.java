@@ -127,24 +127,24 @@ public class AddFrame {
 
     @FXML
     void initialize() {
-        assert addPane != null : "fx:id=\"addPane\" was not injected: check your FXML file 'AddFrame.fxml'.";
-        assert doneAddBT != null : "fx:id=\"doneAddBT\" was not injected: check your FXML file 'AddFrame.fxml'.";
-        assert introAddLB != null : "fx:id=\"introAddLB\" was not injected: check your FXML file 'AddFrame.fxml'.";
-        assert oNameLB != null : "fx:id=\"oNameLB\" was not injected: check your FXML file 'AddFrame.fxml'.";
-        assert oNameTF != null : "fx:id=\"oNameTF\" was not injected: check your FXML file 'AddFrame.fxml'.";
-        assert oPhoneLB != null : "fx:id=\"oPhoneLB\" was not injected: check your FXML file 'AddFrame.fxml'.";
-        assert oPhoneTF != null : "fx:id=\"oPhoneTF\" was not injected: check your FXML file 'AddFrame.fxml'.";
-        assert pAgeLB != null : "fx:id=\"pAgeLB\" was not injected: check your FXML file 'AddFrame.fxml'.";
-        assert pAgeTF != null : "fx:id=\"pAgeTF\" was not injected: check your FXML file 'AddFrame.fxml'.";
-        assert pBreedLB != null : "fx:id=\"pBreedLB\" was not injected: check your FXML file 'AddFrame.fxml'.";
-        assert pBreedTF != null : "fx:id=\"pBreedTF\" was not injected: check your FXML file 'AddFrame.fxml'.";
-        assert pIDLB != null : "fx:id=\"pIDLB\" was not injected: check your FXML file 'AddFrame.fxml'.";
-        assert pIDTF != null : "fx:id=\"pIDTF\" was not injected: check your FXML file 'AddFrame.fxml'.";
-        assert pNameLB != null : "fx:id=\"pNameLB\" was not injected: check your FXML file 'AddFrame.fxml'.";
-        assert pNameTF != null : "fx:id=\"pNameTF\" was not injected: check your FXML file 'AddFrame.fxml'.";
-        assert rVisitLB != null : "fx:id=\"rVisitLB\" was not injected: check your FXML file 'AddFrame.fxml'.";
-        assert rVisitTF != null : "fx:id=\"rVisitTF\" was not injected: check your FXML file 'AddFrame.fxml'.";
-        assert titleAddLB != null : "fx:id=\"titleAddLB\" was not injected: check your FXML file 'AddFrame.fxml'.";
+        assert addPane != null;
+        assert doneAddBT != null;
+        assert introAddLB != null;
+        assert oNameLB != null;
+        assert oNameTF != null;
+        assert oPhoneLB != null;
+        assert oPhoneTF != null;
+        assert pAgeLB != null;
+        assert pAgeTF != null;
+        assert pBreedLB != null;
+        assert pBreedTF != null;
+        assert pIDLB != null;
+        assert pIDTF != null;
+        assert pNameLB != null;
+        assert pNameTF != null;
+        assert rVisitLB != null;
+        assert rVisitTF != null;
+        assert titleAddLB != null;
 
     }
 

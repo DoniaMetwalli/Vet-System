@@ -156,25 +156,25 @@ public class DeleteFrame {
 
     @FXML
     void initialize() {
-        assert deleteBT != null : "fx:id=\"deleteBT\" was not injected: check your FXML file 'DeleteFrame.fxml'.";
-        assert deletePane != null : "fx:id=\"deletePane\" was not injected: check your FXML file 'DeleteFrame.fxml'.";
-        assert introDeleteLB != null : "fx:id=\"introDeleteLB\" was not injected: check your FXML file 'DeleteFrame.fxml'.";
-        assert oNameDelLB != null : "fx:id=\"oNameDelLB\" was not injected: check your FXML file 'DeleteFrame.fxml'.";
-        assert oNameDelTF != null : "fx:id=\"oNameDelTF\" was not injected: check your FXML file 'DeleteFrame.fxml'.";
-        assert oPhoneDelLB != null : "fx:id=\"oPhoneDelLB\" was not injected: check your FXML file 'DeleteFrame.fxml'.";
-        assert oPhoneDelTF != null : "fx:id=\"oPhoneDelTF\" was not injected: check your FXML file 'DeleteFrame.fxml'.";
-        assert pAgeDelTF != null : "fx:id=\"pAgeDelTF\" was not injected: check your FXML file 'DeleteFrame.fxml'.";
-        assert pBreedDelLB != null : "fx:id=\"pBreedDelLB\" was not injected: check your FXML file 'DeleteFrame.fxml'.";
-        assert pBreedDelTF != null : "fx:id=\"pBreedDelTF\" was not injected: check your FXML file 'DeleteFrame.fxml'.";
-        assert pNameDelLB != null : "fx:id=\"pNameDelLB\" was not injected: check your FXML file 'DeleteFrame.fxml'.";
-        assert pNameDelTF != null : "fx:id=\"pNameDelTF\" was not injected: check your FXML file 'DeleteFrame.fxml'.";
-        assert petIDDelTF != null : "fx:id=\"petIDDelTF\" was not injected: check your FXML file 'DeleteFrame.fxml'.";
-        assert reasonDelLB != null : "fx:id=\"reasonDelLB\" was not injected: check your FXML file 'DeleteFrame.fxml'.";
-        assert reasonDelTF != null : "fx:id=\"reasonDelTF\" was not injected: check your FXML file 'DeleteFrame.fxml'.";
-        assert resultsLB != null : "fx:id=\"resultsLB\" was not injected: check your FXML file 'DeleteFrame.fxml'.";
-        assert searchBT != null : "fx:id=\"searchBT\" was not injected: check your FXML file 'DeleteFrame.fxml'.";
-        assert searchPIDLB != null : "fx:id=\"searchPIDLB\" was not injected: check your FXML file 'DeleteFrame.fxml'.";
-        assert titleDeleteLB != null : "fx:id=\"titleDeleteLB\" was not injected: check your FXML file 'DeleteFrame.fxml'.";
+        assert deleteBT != null;
+        assert deletePane != null;
+        assert introDeleteLB != null;
+        assert oNameDelLB != null;
+        assert oNameDelTF != null;
+        assert oPhoneDelLB != null;
+        assert oPhoneDelTF != null;
+        assert pAgeDelTF != null;
+        assert pBreedDelLB != null;
+        assert pBreedDelTF != null;
+        assert pNameDelLB != null;
+        assert pNameDelTF != null;
+        assert petIDDelTF != null;
+        assert reasonDelLB != null;
+        assert reasonDelTF != null;
+        assert resultsLB != null;
+        assert searchBT != null;
+        assert searchPIDLB != null;
+        assert titleDeleteLB != null;
 
     }
 

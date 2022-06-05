@@ -154,24 +154,24 @@ public class ViewPetFrame {
 
     @FXML
     void initialize() {
-        assert updateViewBT != null : "fx:id=\"doneViewBT\" was not injected: check your FXML file 'ViewPetFrame.fxml'.";
-        assert oNameViewLB != null : "fx:id=\"oNameViewLB\" was not injected: check your FXML file 'ViewPetFrame.fxml'.";
-        assert oNameViewTF != null : "fx:id=\"oNameViewTF\" was not injected: check your FXML file 'ViewPetFrame.fxml'.";
-        assert oPhoneViewLB != null : "fx:id=\"oPhoneViewLB\" was not injected: check your FXML file 'ViewPetFrame.fxml'.";
-        assert oPhoneViewTF != null : "fx:id=\"oPhoneViewTF\" was not injected: check your FXML file 'ViewPetFrame.fxml'.";
-        assert pAgeViewLB != null : "fx:id=\"pAgeViewLB\" was not injected: check your FXML file 'ViewPetFrame.fxml'.";
-        assert pAgeViewTF != null : "fx:id=\"pAgeViewTF\" was not injected: check your FXML file 'ViewPetFrame.fxml'.";
-        assert pBreedViewLB != null : "fx:id=\"pBreedViewLB\" was not injected: check your FXML file 'ViewPetFrame.fxml'.";
-        assert pBreedViewTF != null : "fx:id=\"pBreedViewTF\" was not injected: check your FXML file 'ViewPetFrame.fxml'.";
-        assert pIDViewLB != null : "fx:id=\"pIDViewLB\" was not injected: check your FXML file 'ViewPetFrame.fxml'.";
-        assert pIDViewTF != null : "fx:id=\"pIDViewTF\" was not injected: check your FXML file 'ViewPetFrame.fxml'.";
-        assert pNameViewLB != null : "fx:id=\"pNameViewLB\" was not injected: check your FXML file 'ViewPetFrame.fxml'.";
-        assert pNameViewTF != null : "fx:id=\"pNameViewTF\" was not injected: check your FXML file 'ViewPetFrame.fxml'.";
-        assert reasonViewLB != null : "fx:id=\"reasonViewLB\" was not injected: check your FXML file 'ViewPetFrame.fxml'.";
-        assert reasonViewTF != null : "fx:id=\"reasonViewTF\" was not injected: check your FXML file 'ViewPetFrame.fxml'.";
-        assert resultsViewLB != null : "fx:id=\"resultsViewLB\" was not injected: check your FXML file 'ViewPetFrame.fxml'.";
-        assert searchViewBT != null : "fx:id=\"searchViewBT\" was not injected: check your FXML file 'ViewPetFrame.fxml'.";
-        assert viewLB != null : "fx:id=\"viewLB\" was not injected: check your FXML file 'ViewPetFrame.fxml'.";
+        assert updateViewBT != null;
+        assert oNameViewLB != null;
+        assert oNameViewTF != null;
+        assert oPhoneViewLB != null;
+        assert oPhoneViewTF != null;
+        assert pAgeViewLB != null;
+        assert pAgeViewTF != null;
+        assert pBreedViewLB != null;
+        assert pBreedViewTF != null;
+        assert pIDViewLB != null;
+        assert pIDViewTF != null;
+        assert pNameViewLB != null;
+        assert pNameViewTF != null;
+        assert reasonViewLB != null;
+        assert reasonViewTF != null;
+        assert resultsViewLB != null;
+        assert searchViewBT != null;
+        assert viewLB != null;
 
     }
 

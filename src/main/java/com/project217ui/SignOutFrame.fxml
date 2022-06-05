@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane fx:id="signOutPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="662.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project217ui.SignOutFrame">
+   <children>
+      <Label fx:id="signoutLB" layoutX="243.0" layoutY="69.0" text="Sign Out">
+         <font>
+            <Font name="Verdana" size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="credLB" layoutX="51.0" layoutY="137.0" text="Please enter the following credentials to sign out and quit the system">
+         <font>
+            <Font name="Verdana" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="usernLB" layoutX="117.0" layoutY="220.0" text="Username:">
+         <font>
+            <Font name="Verdana" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="userpLB" layoutX="117.0" layoutY="276.0" text="Password:">
+         <font>
+            <Font name="Verdana" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="usernTF" layoutX="273.0" layoutY="215.0" prefHeight="25.0" prefWidth="237.0" />
+      <TextField fx:id="userpTF" layoutX="273.0" layoutY="271.0" prefHeight="25.0" prefWidth="237.0" />
+      <Button fx:id="backBT" layoutX="72.0" layoutY="374.0" mnemonicParsing="false" onAction="#switchToOptions" text="Back">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="signoutBT" layoutX="457.0" layoutY="373.0" mnemonicParsing="false" onAction="#quitSystem" text=" Sign out and quit">
+         <font>
+            <Font name="Verdana" size="13.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

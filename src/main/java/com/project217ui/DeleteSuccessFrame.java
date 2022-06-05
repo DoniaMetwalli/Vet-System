@@ -44,9 +44,9 @@ public class DeleteSuccessFrame {
 
     @FXML
     void initialize() {
-        assert delNextBT != null : "fx:id=\"delNextBT\" was not injected: check your FXML file 'DeleteSuccessFrame.fxml'.";
-        assert delSuPane != null : "fx:id=\"delSuPane\" was not injected: check your FXML file 'DeleteSuccessFrame.fxml'.";
-        assert delSucLB != null : "fx:id=\"delSucLB\" was not injected: check your FXML file 'DeleteSuccessFrame.fxml'.";
+        assert delNextBT != null;
+        assert delSuPane != null;
+        assert delSucLB != null;
 
     }
 

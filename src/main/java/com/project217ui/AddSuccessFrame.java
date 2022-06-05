@@ -44,9 +44,9 @@ public class AddSuccessFrame {
 
     @FXML
     void initialize() {
-        assert addSuLB != null : "fx:id=\"addSuLB\" was not injected: check your FXML file 'AddSuccessFrame.fxml'.";
-        assert addSuccessPane != null : "fx:id=\"addSuccessPane\" was not injected: check your FXML file 'AddSuccessFrame.fxml'.";
-        assert nextAddBT != null : "fx:id=\"nextAddBT\" was not injected: check your FXML file 'AddSuccessFrame.fxml'.";
+        assert addSuLB != null;
+        assert addSuccessPane != null;
+        assert nextAddBT != null;
 
     }
 
