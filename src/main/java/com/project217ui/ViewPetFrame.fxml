@@ -58,14 +58,14 @@
             <Font name="Verdana" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="pNameViewTF" editable="false" layoutX="261.0" layoutY="190.0" prefHeight="25.0" prefWidth="291.0" />
+      <TextField fx:id="pNameViewTF" editable="true" layoutX="261.0" layoutY="190.0" prefHeight="25.0" prefWidth="291.0" />
       <TextField fx:id="pIDViewTF" layoutX="214.0" layoutY="111.0" prefHeight="25.0" prefWidth="268.0" />
-      <TextField fx:id="oNameViewTF" editable="false" layoutX="261.0" layoutY="261.0" prefHeight="25.0" prefWidth="291.0" />
-      <TextField fx:id="oPhoneViewTF" editable="false" layoutX="261.0" layoutY="296.0" prefHeight="25.0" prefWidth="291.0" />
-      <TextField fx:id="pBreedViewTF" editable="false" layoutX="261.0" layoutY="333.0" prefHeight="25.0" prefWidth="291.0" />
-      <TextField fx:id="reasonViewTF" editable="false" layoutX="261.0" layoutY="368.0" prefHeight="25.0" prefWidth="291.0" />
-      <TextField fx:id="weightViewTF" editable="false" layoutX="261.0" layoutY="407.0" prefHeight="25.0" prefWidth="291.0" />
-      <TextField fx:id="diagnosisViewTF" editable="false" layoutX="261.0" layoutY="441.0" prefHeight="25.0" prefWidth="291.0" />
+      <TextField fx:id="oNameViewTF" editable="true" layoutX="261.0" layoutY="261.0" prefHeight="25.0" prefWidth="291.0" />
+      <TextField fx:id="oPhoneViewTF" editable="true" layoutX="261.0" layoutY="296.0" prefHeight="25.0" prefWidth="291.0" />
+      <TextField fx:id="pBreedViewTF" editable="true" layoutX="261.0" layoutY="333.0" prefHeight="25.0" prefWidth="291.0" />
+      <TextField fx:id="reasonViewTF" editable="true" layoutX="261.0" layoutY="368.0" prefHeight="25.0" prefWidth="291.0" />
+      <TextField fx:id="weightViewTF" editable="true" layoutX="261.0" layoutY="407.0" prefHeight="25.0" prefWidth="291.0" />
+      <TextField fx:id="diagnosisViewTF" editable="true" layoutX="261.0" layoutY="441.0" prefHeight="25.0" prefWidth="291.0" />
       
       <Button fx:id="searchViewBT" layoutX="518.0" layoutY="108.0" mnemonicParsing="false" onAction="#getPet" prefHeight="32.0" prefWidth="72.0" text="Search">
          <font>
@@ -82,7 +82,7 @@
             <Font name="Verdana" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="pAgeViewTF" editable="false" layoutX="261.0" layoutY="223.0" prefHeight="25.0" prefWidth="291.0" />
+      <TextField fx:id="pAgeViewTF" editable="true" layoutX="261.0" layoutY="223.0" prefHeight="25.0" prefWidth="291.0" />
       <Button fx:id="backBT" layoutX="68.0" layoutY="470.0" mnemonicParsing="false" onAction="#toBack" prefHeight="32.0" prefWidth="72.0" text="Back">
          <font>
             <Font name="Verdana" size="12.0" />

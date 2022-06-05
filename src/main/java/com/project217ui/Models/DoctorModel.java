@@ -236,6 +236,43 @@ public class DoctorModel {
 
     public boolean removePetFromDB(String petID)
     {
+        try {
+            c = d.conn();
+            System.out.println("Connected to DB");
+            s=c.createStatement();
+            query="Delete from pet where petid="+petID;
+            int result=s.executeUpdate(query);
+            if (result==1) {
+                System.out.println("Record deleted");
+             }
+             else {
+                System.out.println("No record to delete");
+             }
+       
+ 
+         } catch (Exception ex) {
+             System.err.println ("Cannot connect to database server");
+             System.err.println("Message = " + ex.getMessage());
+             System.err.println("printTrace /n");
+             ex.printStackTrace();
+         }
+ 
+         finally
+            {
+                if (c != null)
+                {
+                    try
+                    {
+                        System.out.println("\n***** Let terminate the Connection *****");
+                        c.close ();					   
+                        System.out.println ("\nDatabase connection terminated...");
+                    }
+                    catch (Exception ex)
+                    {
+                    System.err.println ("Error in connection termination!");
+                    }
+                }
+            }
         return removePetFromDB(findPetInDB(petID));
     }
 
@@ -248,7 +285,38 @@ public class DoctorModel {
 
     public boolean updatePetInDB(PetModel pet)
     {
-        return true;
+        try {
+            c = d.conn();
+            System.out.println("Connected to DB");
+            s=c.createStatement();
+            query="update pet set owner_name='"+pet.getOwnerName()+"',owner_phone='"+pet.getOwnerPhone()+"',pet_name='"+pet.getPetName()+"',pet_breed='"+pet.getBreed()+"',pet_age="+pet.getAge()+",pet_weight='"+pet.getWeight()+ "',visit_reason='"+pet.getIssue()+"',diagnosis='"+pet.getDiagnosis()+"' where petid="+pet.getPetID();
+            s.executeUpdate(query);
+
+         } 
+         catch (Exception ex) {
+             System.err.println ("Cannot connect to database server");
+             System.err.println("Message = " + ex.getMessage());
+             System.err.println("printTrace /n");
+             ex.printStackTrace();
+         }
+
+         finally
+            {
+                if (c != null)
+                {
+                    try
+                    {
+                        System.out.println("\n***** Let terminate the Connection *****");
+                        c.close ();					   
+                        System.out.println ("\nDatabase connection terminated...");
+                    }
+                    catch (Exception ex)
+                    {
+                    System.err.println ("Error in connection termination!");
+                    }
+                }
+            }
+        return findPetInDB(pet)!=null;
     }
 
 
@@ -257,7 +325,6 @@ public class DoctorModel {
         pet.addVisit(visit);
         return pet.getLastVisit()==visit;
     }
-
 
     public boolean removeVisitFromPet(PetModel pet, VisitModel visit)
     {

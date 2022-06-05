@@ -127,12 +127,19 @@ public class ViewPetFrame {
     @FXML
     void switchToOptionsMV(ActionEvent event) throws IOException
     {        
-        ViewPetFrameController.UpdatePetInfo(oNameViewTF.getText(), oPhoneViewTF.getText(), pIDViewTF.getId(), pNameViewTF.getId(), pBreedViewTF.getText(),pAgeViewTF.getText(), reasonViewTF.getText(), weightViewTF.getText(), diagnosisViewTF.getText());
-        Parent root = FXMLLoader.load(getClass().getResource("OptionsFrame.fxml"));
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        if(ViewPetFrameController.UpdatePetInfo(oNameViewTF.getText(), oPhoneViewTF.getText(), pIDViewTF.getText(), pNameViewTF.getText(), pBreedViewTF.getText(),pAgeViewTF.getText(), reasonViewTF.getText(), weightViewTF.getText(), diagnosisViewTF.getText()).equals(""))
+        {
+            Parent root = FXMLLoader.load(getClass().getResource("OptionsFrame.fxml"));
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        else
+        {
+            resultsViewLB.setText("Results: Error Updating Pet");
+        }
+
     }
 
     @FXML

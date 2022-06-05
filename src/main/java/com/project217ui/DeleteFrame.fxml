@@ -66,12 +66,12 @@
          </font>
       </Button>
       <TextField fx:id="petIDDelTF" layoutX="212.0" layoutY="122.0" prefHeight="25.0" prefWidth="262.0" />
-      <TextField fx:id="oNameDelTF" editable="false" layoutX="324.0" layoutY="191.0" prefHeight="25.0" prefWidth="262.0" />
-      <TextField fx:id="oPhoneDelTF" editable="false" layoutX="324.0" layoutY="223.0" prefHeight="25.0" prefWidth="262.0" />
-      <TextField fx:id="pNameDelTF" editable="false" layoutX="324.0" layoutY="257.0" prefHeight="25.0" prefWidth="262.0" />
-      <TextField fx:id="pBreedDelTF" editable="false" layoutX="324.0" layoutY="330.0" prefHeight="25.0" prefWidth="262.0" />
-       <TextField fx:id="weightDelTF" editable="false" layoutX="324.0" layoutY="407.0" prefHeight="25.0" prefWidth="262.0" />
-      <TextField fx:id="diagnosisDelTF" editable="false" layoutX="324.0" layoutY="441.0" prefHeight="25.0" prefWidth="262.0" />
+      <TextField fx:id="oNameDelTF" editable="true" layoutX="324.0" layoutY="191.0" prefHeight="25.0" prefWidth="262.0" />
+      <TextField fx:id="oPhoneDelTF" editable="true" layoutX="324.0" layoutY="223.0" prefHeight="25.0" prefWidth="262.0" />
+      <TextField fx:id="pNameDelTF" editable="true" layoutX="324.0" layoutY="257.0" prefHeight="25.0" prefWidth="262.0" />
+      <TextField fx:id="pBreedDelTF" editable="true" layoutX="324.0" layoutY="330.0" prefHeight="25.0" prefWidth="262.0" />
+       <TextField fx:id="weightDelTF" editable="true" layoutX="324.0" layoutY="407.0" prefHeight="25.0" prefWidth="262.0" />
+      <TextField fx:id="diagnosisDelTF" editable="true" layoutX="324.0" layoutY="441.0" prefHeight="25.0" prefWidth="262.0" />
       <Label fx:id="resultsLB" layoutX="316.0" layoutY="165.0" text="Results:">
          <font>
             <Font name="Verdana" size="13.0" />
@@ -82,8 +82,8 @@
             <Font name="Verdana" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="reasonDelTF" editable="false" layoutX="324.0" layoutY="366.0" prefHeight="25.0" prefWidth="262.0" />
-      <TextField fx:id="pAgeDelTF" editable="false" layoutX="324.0" layoutY="292.0" prefHeight="25.0" prefWidth="262.0" />
+      <TextField fx:id="reasonDelTF" editable="true" layoutX="324.0" layoutY="366.0" prefHeight="25.0" prefWidth="262.0" />
+      <TextField fx:id="pAgeDelTF" editable="true" layoutX="324.0" layoutY="292.0" prefHeight="25.0" prefWidth="262.0" />
       <Label layoutX="80.0" layoutY="297.0" text="Pet's age:">
          <font>
             <Font name="Verdana" size="12.0" />
