@@ -3,7 +3,19 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import java.nio.charset.StandardCharsets;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import com.project217ui.Databsae.database_managment;
+
 public class DoctorModel {
+
+    static Connection c;
+    static Statement s;
+    static String query;
+    static String output;
+    static ResultSet result;
     
     private static DoctorModel instance;
     
@@ -37,6 +49,42 @@ public class DoctorModel {
 
     public boolean login(String o_UserName, String o_Password)
     {
+        database_managment d=new database_managment();
+        try {
+            c = d.conn();
+            System.out.println("Connected to DB");
+            s=c.createStatement();
+            query="select * from users where username='"+o_UserName+"' and password='"+o_Password+"'";
+            result=s.executeQuery(query);
+            if (result.next()!=false) {
+                return true;
+            } else {
+               return false;
+            }
+       
+ 
+         } catch (Exception ex) {
+             System.err.println ("Cannot connect to database server");
+             System.err.println("Message = " + ex.getMessage());
+             System.err.println("printTrace /n");
+             ex.printStackTrace();
+         }
+         finally
+            {
+                if (c != null)
+                {
+                    try
+                    {
+                        System.out.println("\n***** Let terminate the Connection *****");
+                        c.close ();					   
+                        System.out.println ("\nDatabase connection terminated...");
+                    }
+                    catch (Exception ex)
+                    {
+                    System.err.println ("Error in connection termination!");
+                    }
+                }
+            }
         return true;
     }
 

@@ -9,6 +9,6 @@ public class SignInController {
     }
     public static boolean CheckLoginInfo(String username, String password)
     {
-        return DoctorModel.Instance().TestLogin(username,password);
+        return DoctorModel.Instance().login(username,password);
     }
 }
