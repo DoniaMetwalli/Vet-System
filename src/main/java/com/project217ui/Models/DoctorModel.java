@@ -106,9 +106,9 @@ public class DoctorModel {
                 return false;
             // Create a SQL Statement to insert the hash of the username and the salted
             // password into the database
-            query = "INSERT INTO users VALUES('" + getHash(o_UserName) + "','"
+            query = "INSERT INTO `users`(`username`, `Password`) VALUES ('" + getHash(o_UserName) + "','"
                     + getHash(o_UserName + o_Password + getHash(o_UserName)) + "')";
-            s.executeUpdate(query);
+                    s.executeUpdate(query);
             System.out.println("Inserted");
 
         } catch (Exception ex) {
