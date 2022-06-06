@@ -14,7 +14,10 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import com.project217ui.App;
+
 public class OptionsFrame {
+
+    // Retrieve ui elements from the FXML file
 
     @FXML
     private ResourceBundle resources;
@@ -56,61 +59,85 @@ public class OptionsFrame {
     private Label signupLB;
     @FXML
     private Button signupBT;
+
+    /**
+     * Switches scene to Add Pet Frame
+     * 
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    void switchToAdd(ActionEvent event) throws IOException 
-    {
+    void switchToAdd(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(App.Instance().getClass().getResource("AddFrame.fxml"));
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
+    /**
+     * Switches Scene to Delete Frame
+     * 
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    void switchToDelete(ActionEvent event) throws IOException 
-    {
+    void switchToDelete(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(App.Instance().getClass().getResource("DeleteFrame.fxml"));
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
+    /**
+     * Switches scene to View Pet Frame
+     * 
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    void switchToView(ActionEvent event) throws IOException 
-    {
+    void switchToView(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(App.Instance().getClass().getResource("ViewPetFrame.fxml"));
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
+    /**
+     * Switches scene to Sign Up Frame
+     * 
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    void switchToSignUp(ActionEvent event ) throws IOException
-    {
+    void switchToSignUp(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(App.Instance().getClass().getResource("SignUpFrame.fxml"));
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
+    /**
+     * Switches to Sign In Frame
+     * 
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    void switchToSignOut(ActionEvent event) throws IOException 
-    {
-        // Parent root = FXMLLoader.load(getClass().getResource("SignOutFrame.fxml"));
-        // Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        // Scene scene = new Scene(root);
-        // stage.setScene(scene);
-        // stage.show();
+    void switchToSignOut(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(App.Instance().getClass().getResource("SignInFrame.fxml"));
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.show();   
+        stage.show();
     }
 
+    /**
+     * Ensures the FXML file was loaded correctly
+     */
     @FXML
     void initialize() {
         assert addBT != null;

@@ -1,12 +1,11 @@
 
 package com.project217ui.Views;
 
+import com.project217ui.Controllers.SignUpWindowController;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import com.project217ui.Controllers.SignUpWindowController;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,8 +18,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import com.project217ui.App;
+
 public class SignUpFrame {
 
+    // Retrieve ui elements from the FXML file
     @FXML
     private ResourceBundle resources;
 
@@ -56,33 +57,44 @@ public class SignUpFrame {
 
     @FXML
     private Label messageLB;
+
+    /**
+     * Adds a new Doctor
+     * 
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    void addDoctor(ActionEvent event) throws IOException 
-    {
-        if(SignUpWindowController.SignUp(usernTF.getText(), userpTF.getText()))
-        {
+    void addDoctor(ActionEvent event) throws IOException {
+        if (SignUpWindowController.SignUp(usernTF.getText(), userpTF.getText())) {
             Parent root = FXMLLoader.load(App.Instance().getClass().getResource("SignUpSuccessFrame.fxml"));
-            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-        }
-        else
-        {
+        } else {
             messageLB.setText("Adding the Doctor Failed, username already in use");
         }
     }
 
+    /**
+     * Returns to the options frame
+     * 
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    void switchToOptions(ActionEvent event) throws IOException 
-    {
+    void switchToOptions(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(App.Instance().getClass().getResource("OptionsFrame.fxml"));
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
+    /**
+     * Ensures the FXML file was loaded correctly
+     */
     @FXML
     void initialize() {
         assert backBT != null;
@@ -94,7 +106,7 @@ public class SignUpFrame {
         assert usernTF != null;
         assert userpLB != null;
         assert userpTF != null;
-        assert messageLB !=null;
+        assert messageLB != null;
     }
 
 }

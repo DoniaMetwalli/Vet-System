@@ -18,7 +18,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import com.project217ui.App;
+
 public class AddFrame {
+
+    // Retrieve ui elements from the FXML file
 
     @FXML
     private ResourceBundle resources;
@@ -88,43 +91,60 @@ public class AddFrame {
 
     @FXML
     private Label diagnosisLB;
-    
+
     @FXML
     private TextField weightTF;
-    
-    @FXML 
+
+    @FXML
     private TextField diagnosisTF;
     @FXML
     private Label messageLB;
+
+    /**
+     * Sends data to the controller to add the pet to the database and switch to Add
+     * Success screen if successful
+     * 
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    void switchToAddS(ActionEvent event) throws IOException
-    {
+    void switchToAddS(ActionEvent event) throws IOException {
         messageLB.setText("");
-        String res =AddFrameController.AddPet(oNameTF.getText(),oPhoneTF.getText(), pIDTF.getText(),pNameTF.getText(),pBreedTF.getText(), pAgeTF.getText(), rVisitTF.getText(),weightTF.getText(),diagnosisTF.getText());
-        if(res=="")
-        {
+        // Call the addPet in the addframe controller using data in the text fields
+        String res = AddFrameController.AddPet(oNameTF.getText(), oPhoneTF.getText(), pIDTF.getText(),
+                pNameTF.getText(), pBreedTF.getText(), pAgeTF.getText(), rVisitTF.getText(), weightTF.getText(),
+                diagnosisTF.getText());
+        // If no error message was sent
+        if (res == "") {
             Parent root = FXMLLoader.load(App.Instance().getClass().getResource("AddSuccessFrame.fxml"));
-            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-        }
-        else
-        {
+        } else {
+            // Display Error
             messageLB.setText(res);
-        }        
+        }
     }
 
+    /**
+     * Returns to the options frame
+     * 
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    void toBack(ActionEvent event) throws IOException
-    {
+    void toBack(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(App.Instance().getClass().getResource("OptionsFrame.fxml"));
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
+    /**
+     * Ensures the FXML file was loaded correctly
+     */
     @FXML
     void initialize() {
         assert addPane != null;

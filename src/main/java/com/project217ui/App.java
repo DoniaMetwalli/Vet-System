@@ -10,6 +10,10 @@ import java.io.IOException;
 public class App extends Application {
 
     private static App instance;
+    /**
+     * 
+     * @return Static Singleton instance of App
+     */
     public static App Instance()
     {
         return instance;
@@ -18,10 +22,10 @@ public class App extends Application {
     public void start(Stage stage) throws IOException 
     {
         instance =this;
+        // Initialize the stage with the login screen as the first scene
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SignInFrame.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Scene scene = new Scene(root);
-
         stage.setTitle("CutePet Vet");
         stage.setScene(scene);
         stage.show();

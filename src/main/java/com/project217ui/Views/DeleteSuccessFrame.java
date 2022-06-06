@@ -15,7 +15,10 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import com.project217ui.App;
+
 public class DeleteSuccessFrame {
+
+    // Retrieve ui elements from the FXML file
 
     @FXML
     private ResourceBundle resources;
@@ -32,16 +35,24 @@ public class DeleteSuccessFrame {
     @FXML
     private Label delSucLB;
 
+    /**
+     * Returns to the options frame
+     * 
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    void switchToOptionMD(ActionEvent event) throws IOException
-    {
+    void switchToOptionMD(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(App.Instance().getClass().getResource("OptionsFrame.fxml"));
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
+    /**
+     * Ensures the FXML file was loaded correctly
+     */
     @FXML
     void initialize() {
         assert delNextBT != null;

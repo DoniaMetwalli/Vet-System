@@ -1,12 +1,10 @@
 package com.project217ui.Views;
 
+import com.project217ui.Controllers.ViewPetFrameController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
-
-import com.project217ui.Controllers.ViewPetFrameController;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +16,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import com.project217ui.App;
+
 public class ViewPetFrame {
+
+    // Retrieve ui elements from the FXML file
 
     @FXML
     private ResourceBundle resources;
@@ -85,22 +86,26 @@ public class ViewPetFrame {
 
     @FXML
     private Label diagnosisViewLB;
-    
+
     @FXML
     private Label weightViewLB;
-    
+
     @FXML
     private TextField weightViewTF;
 
     @FXML
     private TextField diagnosisViewTF;
 
+    /**
+     * Searches for pet using ID in petIDDelTF and Displays its data
+     * 
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    void getPet(ActionEvent event) throws IOException
-    {
-        HashMap<String,String> petInfo = ViewPetFrameController.RetrievePetInfo(pIDViewTF.getText());
-        if (petInfo==null|| petInfo.isEmpty())
-        {
+    void getPet(ActionEvent event) throws IOException {
+        HashMap<String, String> petInfo = ViewPetFrameController.RetrievePetInfo(pIDViewTF.getText());
+        if (petInfo == null || petInfo.isEmpty()) {
             resultsViewLB.setText("Results: ID not Found");
             oNameViewTF.setText("");
             pNameViewTF.setText("");
@@ -110,48 +115,58 @@ public class ViewPetFrame {
             diagnosisViewTF.setText("");
             pAgeViewTF.setText("");
             weightViewTF.setText("");
-        }
-        else
-        {
+        } else {
             pNameViewTF.setText(petInfo.get("PetName"));
             oNameViewTF.setText(petInfo.get("OwnerName"));
             oPhoneViewTF.setText(petInfo.get("OwnerPhone"));
-            pBreedViewTF.setText( petInfo.get("PetBreed"));
+            pBreedViewTF.setText(petInfo.get("PetBreed"));
             reasonViewTF.setText(petInfo.get("VisitReason"));
             diagnosisViewTF.setText(petInfo.get("Diagnosis"));
             pAgeViewTF.setText(petInfo.get("Age"));
             weightViewTF.setText(petInfo.get("Weight"));
-        }        
+        }
     }
 
+    /**
+     * Updates the pet using input from the Text fields
+     * 
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    void switchToOptionsMV(ActionEvent event) throws IOException
-    {        
-        if(ViewPetFrameController.UpdatePetInfo(oNameViewTF.getText(), oPhoneViewTF.getText(), pIDViewTF.getText(), pNameViewTF.getText(), pBreedViewTF.getText(),pAgeViewTF.getText(), reasonViewTF.getText(), weightViewTF.getText(), diagnosisViewTF.getText()).equals(""))
-        {
+    void switchToOptionsMV(ActionEvent event) throws IOException {
+        if (ViewPetFrameController.UpdatePetInfo(oNameViewTF.getText(), oPhoneViewTF.getText(), pIDViewTF.getText(),
+                pNameViewTF.getText(), pBreedViewTF.getText(), pAgeViewTF.getText(), reasonViewTF.getText(),
+                weightViewTF.getText(), diagnosisViewTF.getText()).equals("")) {
             Parent root = FXMLLoader.load(App.Instance().getClass().getResource("OptionsFrame.fxml"));
-            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-        }
-        else
-        {
+        } else {
             resultsViewLB.setText("Results: Error Updating Pet");
         }
 
     }
 
+    /**
+     * Returns to the options frame
+     * 
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    void toBack(ActionEvent event) throws IOException
-    {
+    void toBack(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(App.Instance().getClass().getResource("OptionsFrame.fxml"));
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
+    /**
+     * Ensures the FXML file was loaded correctly
+     */
     @FXML
     void initialize() {
         assert updateViewBT != null;

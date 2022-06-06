@@ -18,7 +18,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import com.project217ui.App;
+
 public class DeleteFrame {
+
+    // Retrieve ui elements from the FXML file
 
     @FXML
     private ResourceBundle resources;
@@ -88,23 +91,27 @@ public class DeleteFrame {
 
     @FXML
     private Label diagnosisDelLB;
-    
+
     @FXML
     private Label weightDelLB;
-    
+
     @FXML
     private TextField weightDelTF;
 
     @FXML
     private TextField diagnosisDelTF;
 
-     @FXML
-    void getPet(ActionEvent event) throws IOException
-    {
-        HashMap<String,String> petInfo = DeletePetFrameController.RetrievePetInfo(petIDDelTF.getText());
-        if (petInfo==null|| petInfo.isEmpty())
-        {
-            resultsLB.setText(resultsLB.getText()+" ID not Found");
+    /**
+     * Searches for pet using ID in petIDDelTF and Displays its data
+     * 
+     * @param event
+     * @throws IOException
+     */
+    @FXML
+    void getPet(ActionEvent event) throws IOException {
+        HashMap<String, String> petInfo = DeletePetFrameController.RetrievePetInfo(petIDDelTF.getText());
+        if (petInfo == null || petInfo.isEmpty()) {
+            resultsLB.setText(resultsLB.getText() + " ID not Found");
             oNameDelTF.setText("");
             pNameDelTF.setText("");
             oPhoneDelTF.setText("");
@@ -113,47 +120,57 @@ public class DeleteFrame {
             diagnosisDelTF.setText("");
             pAgeDelTF.setText("");
             weightDelTF.setText("");
-        }
-        else
-        {
+        } else {
             pNameDelTF.setText(petInfo.get("PetName"));
             oNameDelTF.setText(petInfo.get("OwnerName"));
             oPhoneDelTF.setText(petInfo.get("OwnerPhone"));
-            pBreedDelTF.setText( petInfo.get("PetBreed"));
+            pBreedDelTF.setText(petInfo.get("PetBreed"));
             reasonDelTF.setText(petInfo.get("VisitReason"));
             diagnosisDelTF.setText(petInfo.get("Diagnosis"));
             pAgeDelTF.setText(petInfo.get("Age"));
             weightDelTF.setText(petInfo.get("Weight"));
-        }        
+        }
     }
 
+    /**
+     * Deletes a pet using its ID and if it was deleted, switches to Delete Success
+     * Frame
+     * 
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    void switchToDelS(ActionEvent event) throws IOException
-    {
-        if(DeletePetFrameController.RetrievePetInfo(petIDDelTF.getText())!=null&&DeletePetFrameController.RemovePet(petIDDelTF.getText()))
-        {
+    void switchToDelS(ActionEvent event) throws IOException {
+        if (DeletePetFrameController.RetrievePetInfo(petIDDelTF.getText()) != null
+                && DeletePetFrameController.RemovePet(petIDDelTF.getText())) {
             Parent root = FXMLLoader.load(App.Instance().getClass().getResource("DeleteSuccessFrame.fxml"));
-            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-        }
-        else
-        {
+        } else {
             resultsLB.setText("Results: Pet Couldn't be removed recheck ID");
         }
     }
 
+    /**
+     * Returns to the options frame
+     * 
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    void toBackD(ActionEvent event) throws IOException
-    {
+    void toBackD(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(App.Instance().getClass().getResource("OptionsFrame.fxml"));
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
+    /**
+     * Ensures the FXML file was loaded correctly
+     */
     @FXML
     void initialize() {
         assert deleteBT != null;
