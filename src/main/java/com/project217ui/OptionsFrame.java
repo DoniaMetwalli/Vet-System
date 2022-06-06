@@ -53,6 +53,10 @@ public class OptionsFrame {
     private Label viewLB;
 
     @FXML
+    private Label signupLB;
+    @FXML
+    private Button signupBT;
+    @FXML
     void switchToAdd(ActionEvent event) throws IOException 
     {
         Parent root = FXMLLoader.load(getClass().getResource("AddFrame.fxml"));
@@ -83,14 +87,28 @@ public class OptionsFrame {
     }
 
     @FXML
-    void switchToSignOut(ActionEvent event) throws IOException 
+    void switchToSignUp(ActionEvent event ) throws IOException
     {
-        Parent root = FXMLLoader.load(getClass().getResource("SignOutFrame.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("SignUpFrame.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
 
+    @FXML
+    void switchToSignOut(ActionEvent event) throws IOException 
+    {
+        // Parent root = FXMLLoader.load(getClass().getResource("SignOutFrame.fxml"));
+        // Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        // Scene scene = new Scene(root);
+        // stage.setScene(scene);
+        // stage.show();
+        Parent root = FXMLLoader.load(getClass().getResource("SignInFrame.fxml"));
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();   
     }
 
     @FXML

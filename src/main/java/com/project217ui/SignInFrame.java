@@ -1,8 +1,6 @@
 package com.project217ui;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 import com.project217ui.Controllers.SignInController;
 
@@ -46,6 +44,18 @@ public class SignInFrame {
 
     @FXML
     private Label messageLB;
+
+    @FXML
+    private Button quitBT;
+
+    @FXML
+    void quitSystem(ActionEvent event) throws IOException 
+    {
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        // do what you have to do
+        stage.close();
+        // get a handle to the stage
+    }
     @FXML
     void switchToOptions(ActionEvent event) throws IOException
     {

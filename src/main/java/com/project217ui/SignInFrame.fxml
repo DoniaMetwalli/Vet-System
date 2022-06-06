@@ -72,5 +72,10 @@
             <Font name="Verdana" size="13.0" />
          </font>
       </Label>
+      <Button fx:id="quitBT" layoutX="72.0" layoutY="350.0" mnemonicParsing="false" onAction="#quitSystem" prefHeight="34.0" prefWidth="72.0" text="Exit">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Button>
    </children>
 </Pane>

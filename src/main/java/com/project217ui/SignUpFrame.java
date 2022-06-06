@@ -1,10 +1,11 @@
+
 package com.project217ui;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.project217ui.Controllers.SignInController;
+import com.project217ui.Controllers.SignUpWindowController;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,7 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class SignOutFrame {
+public class SignUpFrame {
 
     @FXML
     private ResourceBundle resources;
@@ -33,13 +34,13 @@ public class SignOutFrame {
     private Label credLB;
 
     @FXML
-    private Pane signOutPane;
+    private Pane signUpPane;
 
     @FXML
-    private Button signoutBT;
+    private Button signUpBT;
 
     @FXML
-    private Label signoutLB;
+    private Label signUpLB;
 
     @FXML
     private Label usernLB;
@@ -54,15 +55,22 @@ public class SignOutFrame {
     private TextField userpTF;
 
     @FXML
-    void quitSystem(ActionEvent event) throws IOException 
+    private Label messageLB;
+    @FXML
+    void addDoctor(ActionEvent event) throws IOException 
     {
-        if(SignInController.CheckLoginInfo(usernTF.getText(),userpTF.getText()))
+        if(SignUpWindowController.SignUp(usernTF.getText(), userpTF.getText()))
         {
+            Parent root = FXMLLoader.load(getClass().getResource("SignUpSuccessFrame.fxml"));
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            // do what you have to do
-            stage.close();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
-        // get a handle to the stage
+        else
+        {
+            messageLB.setText("Adding the Doctor Failed, username already in use");
+        }
     }
 
     @FXML
@@ -79,14 +87,14 @@ public class SignOutFrame {
     void initialize() {
         assert backBT != null;
         assert credLB != null;
-        assert signOutPane != null;
-        assert signoutBT != null;
-        assert signoutLB != null;
+        assert signUpPane != null;
+        assert signUpBT != null;
+        assert signUpLB != null;
         assert usernLB != null;
         assert usernTF != null;
         assert userpLB != null;
         assert userpTF != null;
-
+        assert messageLB !=null;
     }
 
 }

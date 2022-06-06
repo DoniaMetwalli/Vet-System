@@ -38,6 +38,8 @@ public class DoctorModel {
     {
         try
         {
+            System.out.println(getHash(o_UserName));
+            System.out.println(getHash(o_UserName+o_Password+getHash(o_UserName)));
             return getHash(o_UserName).equals(getHash("AAA"))&&getHash(o_UserName+o_Password+getHash(o_UserName)).equals(getHash("AAA"+"AAA"+getHash("AAA")));        
         }
         catch (Exception e)
@@ -54,7 +56,7 @@ public class DoctorModel {
             c = d.conn();
             System.out.println("Connected to DB");
             s=c.createStatement();
-            query="select * from users where username='"+o_UserName+"' and password='"+o_Password+"'";
+            query="select * from users where username='"+getHash(o_UserName)+"' and password='"+getHash(o_UserName+o_Password+getHash(o_UserName))+"'";
             result=s.executeQuery(query);
             if (result.next()!=false) {
                 return true;
@@ -87,7 +89,27 @@ public class DoctorModel {
         return true;
     }
 
-    
+    public boolean signUp(String o_UserName, String o_Password)
+    {
+        try
+        {
+            c = d.conn();
+            System.out.println("Connected to DB");
+            s=c.createStatement();
+            if(s.executeQuery("select * from users where username = '"+getHash(o_UserName)+"'").next()!=false)
+                return false;
+            query="INSERT INTO users VALUES('"+getHash(o_UserName)+"','"+getHash(o_UserName+o_Password+getHash(o_UserName))+"')";
+            s.executeUpdate(query);
+            System.out.println("Inserted");
+            
+        }
+        catch (Exception e)
+        {
+
+        }
+        return login(o_UserName, o_Password);
+    }
+
     public boolean AddPetToDB(String petName,String ownerName,String phoneNum,String petID,String petBreed,float petAge,float weight, String visitReason,String diagnosis)
     {
         try {
