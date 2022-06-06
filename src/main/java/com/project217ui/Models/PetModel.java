@@ -147,6 +147,7 @@ public class PetModel {
      * @throws IllegalArgumentException if the ID is already used by another Pet
      */
     public void setPetID(String o_PetID) throws IllegalArgumentException {
+        System.out.println(m_PetName+" "+ usedIDs.get(o_PetID));
         if ((usedIDs.keySet().contains(o_PetID)) && !this.m_PetName.equals(usedIDs.get(o_PetID)))
             throw new IllegalArgumentException("ID already in use");
         usedIDs.remove(this.m_PetID);

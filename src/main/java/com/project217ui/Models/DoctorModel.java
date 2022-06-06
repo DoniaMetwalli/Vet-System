@@ -202,13 +202,13 @@ public class DoctorModel {
             System.out.println("Connected to DB");
             // Create a SQL query that get all pets with petID
             s = c.createStatement();
-            query = "select * from pet where petid=" + petID;
+            query = "select * from pet where petid='" + petID+"'";
 
             result = s.executeQuery(query);
             // Return the first pet found
             if (result.next() != false) {
                 System.out.println("Pet found");
-                return new PetModel(result.getString(4), result.getString(2), result.getString(3), result.getString(4),
+                return new PetModel(result.getString(4), result.getString(2), result.getString(3), result.getString(1),
                         result.getString(5), result.getFloat(6), result.getFloat(7), result.getString(8),
                         result.getString(9));
             } else {
@@ -272,7 +272,7 @@ public class DoctorModel {
             // Returns the first Result found
             if (result.next() != false) {
                 System.out.println("Pet found");
-                return new PetModel(result.getString(1), result.getString(2), result.getString(3), result.getString(4),
+                return new PetModel(result.getString(4), result.getString(2), result.getString(3), result.getString(1),
                         result.getString(5), result.getFloat(6), result.getFloat(7), result.getString(8),
                         result.getString(9));
             } else {
