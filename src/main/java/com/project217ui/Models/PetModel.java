@@ -1,6 +1,8 @@
 package com.project217ui.Models;
 
 import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class PetModel {
     /**
@@ -37,6 +39,7 @@ public class PetModel {
         setPetID(o_PetID);
         setIssue(o_Issue);
         setDiagnosis(o_Diagnosis);
+        m_Visits = new ArrayList<VisitModel>();
     }
 
     /**
@@ -65,6 +68,7 @@ public class PetModel {
         setWeight(o_Weight);
         setIssue(o_Issue);
         setDiagnosis(o_Diagnosis);
+        m_Visits = new ArrayList<VisitModel>();
     }
 
     @Override
@@ -235,6 +239,57 @@ public class PetModel {
         this.m_Weight = o_Weight;
     }
 
+     public int getVisitIndex(VisitModel o_Visit)
+    {
+        return m_Visits.indexOf(o_Visit);
+    }
+
+
+    public void addVisit(VisitModel o_Visit)
+    {
+        m_Visits.add(o_Visit);
+    } 
+
+    
+    public void addVisits(Collection<? extends VisitModel> o_Visits)
+    {
+        m_Visits.addAll(o_Visits);
+    }
+
+    
+    public VisitModel getVisit(int visitIndex)
+    {
+        return m_Visits.get(visitIndex);
+    }
+
+
+    public void removeVisit(VisitModel o_Visit)
+    {
+        m_Visits.remove(o_Visit);
+    }    
+
+
+    public void removeVisit(int o_VisitIndex)
+    {
+        m_Visits.remove(o_VisitIndex);
+    }
+    
+    
+    public ArrayList<VisitModel> getVisits(String complaint)
+    {
+        ArrayList<VisitModel> subList = new ArrayList<VisitModel>();
+        for (VisitModel v : m_Visits)
+        {
+            if(v.getComplaint().contains(complaint))
+                subList.add(v);
+        }
+        return subList;
+    }
+
+    public VisitModel getLastVisit ()
+    {
+        return m_Visits.get(m_Visits.size()-1);
+    }
     @Override
     public String toString() {
         return new String("Pet name: " + this.m_PetName + "\nOwner name: " + this.m_OwnerName + "\nOwner phone: "
@@ -280,4 +335,5 @@ public class PetModel {
     private float m_Weight = -1;
     private String m_Issue = "N/A";
     private String m_Diagnosis = "N/A";
+    private ArrayList<VisitModel> m_Visits; 
 }
