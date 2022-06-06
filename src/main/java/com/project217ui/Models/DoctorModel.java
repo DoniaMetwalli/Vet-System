@@ -97,6 +97,7 @@ public class DoctorModel {
         try {
             // Create a new database connection
             c = d.conn();
+            c.setAutoCommit(false); // Set auto commit to false
             System.out.println("Connected to DB");
             // Create a first query that checks if another Doctor with the same username
             // exists
@@ -109,6 +110,8 @@ public class DoctorModel {
             query = "INSERT INTO `users`(`username`, `Password`) VALUES ('" + getHash(o_UserName) + "','"
                     + getHash(o_UserName + o_Password + getHash(o_UserName)) + "')";
                     s.executeUpdate(query);
+
+            c.commit(); // Commit the changes to the database        
             System.out.println("Inserted");
 
         } catch (Exception ex) {
@@ -151,13 +154,16 @@ public class DoctorModel {
         try {
             // Creates a new Database connection
             c = d.conn();
+            c.setAutoCommit(false); // Sets the auto commit to false
             System.out.println("Connected to DB");
             // Creates a SQL Statement that inserts the pet Info into the database
             s = c.createStatement();
             query = "INSERT INTO pet VALUES('" + petID + "','" + ownerName + "','" + phoneNum + "', '" + petName + "','"
                     + petBreed + "'," + petAge + "," + weight + ", '" + visitReason + "','" + diagnosis + "')";
             s.executeUpdate(query);
+            c.commit(); // Commits the changes to the database
             System.out.println("Inserted");
+    
 
         } catch (Exception ex) {
             // Logs Error
@@ -316,11 +322,13 @@ public class DoctorModel {
         try {
             // Create Datbase connection
             c = d.conn();
+            c.setAutoCommit(false);
             System.out.println("Connected to DB");
             // Create SQL Statement to delete the first Pet found
             s = c.createStatement();
             query = "Delete from pet where petid=" + petID;
             int result = s.executeUpdate(query);
+            c.commit(); // Commits the changes to the database
             if (result == 1) {
                 return true;
             } else {
@@ -359,6 +367,7 @@ public class DoctorModel {
         try {
             // Create database connection
             c = d.conn();
+            c.setAutoCommit(false);
             System.out.println("Connected to DB");
             // Create SQL Query that updates the pet where the ID is equal to the PetModel
             // ID
@@ -368,6 +377,7 @@ public class DoctorModel {
                     + ",pet_weight='" + pet.getWeight() + "',visit_reason='" + pet.getIssue() + "',diagnosis='"
                     + pet.getDiagnosis() + "' where petid=" + pet.getPetID();
             s.executeUpdate(query);
+            c.commit(); // Commits the changes to the database
 
         } catch (Exception ex) {
             // Logs Database errors
